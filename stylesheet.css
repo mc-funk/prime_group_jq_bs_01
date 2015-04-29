@@ -8,3 +8,6 @@
  .leftArrow, .rightArrow {
      display: inline;
  }
+ .displayImage img {
+ 	max-height: 400px;
+ }
