@@ -1,0 +1,18 @@
+img {
+    float: left;
+    padding: 0px 10px 10px 0px;
+}
+
+.row {
+    display: table;
+}
+
+.well{
+    display: table-cell;
+    background-color: #752a9fd6;
+    float: none;
+}
+
+.deck {
+    text-align: left;
+}
