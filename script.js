@@ -1,11 +1,11 @@
 var apikey = 'c5efa99a7dbd7d52f466cb2413154950ae0a962f'; // Put your API key here
 var index = 0;
+var searchResults;
 
 // Use this function to do stuff with your results. 
 // It is called after 'search' is executed.
-function searchCallback(results) {
-    console.log(results);
-
+function displayResult(result) {
+    console.log(result);
 	//for (var i=0; i<9; i++){
 	//	//create row
 	//	if (i%2 == 0){
@@ -37,9 +37,15 @@ $(document).ready(function() {
 		var searchTerm = $("#searchField").val();
 		console.log(searchTerm);
 		$("#searchField").val('');
-		search(searchTerm);
+		searchResults = search(searchTerm);
 	});
 
+	// When an individual nav button is clicked, display those search results
+	$(".circleBtn").on('click', function(){
+		index = $(this).data("index");
+	})
+
+	//
 });
 
 // HELPER FUNCTION
@@ -56,7 +62,9 @@ function search(query){
 	        console.log('ajax complete');
 	    },
 	    success: function(data) {
-	        searchCallback(data.results);
+			searchResults = (data.results);
+			searchResults = searchResults.slice(0,8);
+	        searchCallback(searchResults[0]);
 	    }
 	});
 
