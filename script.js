@@ -6,6 +6,7 @@ var searchResults;
 // It is called after 'search' is executed.
 function displayResult(result) {
     console.log(result);
+	$(".displayImage").html("<img src='" + result.image.medium_url + "'>");
 	//for (var i=0; i<9; i++){
 	//	//create row
 	//	if (i%2 == 0){
@@ -43,7 +44,7 @@ $(document).ready(function() {
 	// When an individual nav button is clicked, display those search results
 	$(".circleBtn").on('click', function(){
 		index = $(this).data("index");
-	})
+	});
 
 	//
 });
@@ -64,7 +65,7 @@ function search(query){
 	    success: function(data) {
 			searchResults = (data.results);
 			searchResults = searchResults.slice(0,8);
-	        searchCallback(searchResults[0]);
+	        displayResult(searchResults[0]);
 	    }
 	});
 
