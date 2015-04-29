@@ -13,15 +13,15 @@ function displayResult(result) {
 	}
 	el = el.substr( 0, (el.length - 2));
 	$(".displayInfo").html("<h2 class='lead'>"+result.name+"</h2><p>"+result.deck+"</p><p>"+el+"</p>");
-
+	$(".display").show();
 }
 
 $(document).ready(function() {
 
 	$(".searchBtn").on('click', function(){
+		$(".searchStatus").show();
 		$(".container").children(".row").remove();
 		var searchTerm = $("#searchField").val();
-		console.log(searchTerm);
 		$("#searchField").val('');
 		searchResults = search(searchTerm);
 	});
@@ -67,6 +67,7 @@ function search(query){
 			searchResults = (data.results);
 			searchResults = searchResults.slice(0,8);
 	        displayResult(searchResults[0]);
+	        $(".searchStatus").hide();
 	        //data.results holding all results from ajax query 
 	    }
 	});
