@@ -1,6 +1,6 @@
 .circleBtn {
     border-radius: 50%;
-    background-color: grey;
+    background-color: gray;
     width: 25px;
     height: 25px;
     display: inline-block;
@@ -8,3 +8,27 @@
  .leftArrow, .rightArrow {
      display: inline;
  }
+ .displayImage img {
+ 	max-height: 400px;
+ }
+ .searchStatus {
+ 	background-color: white;
+ }
+ /*.container {
+
+ }*/
+/* .displayImage img {
+
+
+ }
+ .nav {
+ 
+ }
+ .displayInfo {
+
+ }
+ .searchBtn {
+ 	
+ }
+ .searchField {
+ 	*/

@@ -7,36 +7,21 @@ var searchResults;
 function displayResult(result) {
     console.log(result);
 	$(".displayImage").html("<img src='" + result.image.medium_url + "'>");
-	//for (var i=0; i<9; i++){
-	//	//create row
-	//	if (i%2 == 0){
-	//	$('.container').append("<div class='row'></div>");
-	//	}
-	//	//create column
-	//	$(".row").last().append("<div class='col-xs-10 col-sm-10 col-md-6 col-lg-6 well newResult'></div>");
-	//	//append data
-	//	$(".newResult").last().append("<p class='lead'>" + results[i].name + "</p>");
-	//	//check for null values
-	//	if (results[i].image.thumb_url) {
-	//		$('.newResult').last().append("<img class='hidden-xs hidden-sm' src='" + results[i].image.thumb_url + "'>");
-	//		}
-	//	if (results[i].deck) {
-	//		$('.newResult').last().append("<p class='deck'>" + results[i].deck + "</p>");
-	//		}
-	//	// append button
-	//	$('.newResult').last().append("<div class='btn btn-sm btn-success rm-btn'>Remove</div>");
-	//	//show row
-	//	$(".row").hide().delay(i*500).fadeIn("slow");
-	//};
-
+	var el = "";
+	for (var i = 0; i < result.platforms.length; i++){
+		el += (result.platforms[i].name+", ");
+	}
+	el = el.substr( 0, (el.length - 2));
+	$(".displayInfo").html("<h2 class='lead'>"+result.name+"</h2><p>"+result.deck+"</p><p>"+el+"</p>");
+	$(".display").show();
 }
 
 $(document).ready(function() {
 
 	$(".searchBtn").on('click', function(){
+		$(".searchStatus").show();
 		$(".container").children(".row").remove();
 		var searchTerm = $("#searchField").val();
-		console.log(searchTerm);
 		$("#searchField").val('');
 		searchResults = search(searchTerm);
 	});
@@ -44,8 +29,24 @@ $(document).ready(function() {
 	// When an individual nav button is clicked, display those search results
 	$(".circleBtn").on('click', function(){
 		index = $(this).data("index");
+		displayResult(searchResults[index]);
 	});
 
+	$(".leftArrow").on("click", function() {
+		index--;
+		if (index < 0){
+			index = 7;
+		}
+		displayResult(searchResults[index]);
+	});
+
+	$(".rightArrow").on("click", function() {
+		index++;
+		if (index > 7){
+			index = 0;
+		}
+		displayResult(searchResults[index]);
+	});
 	//
 });
 
@@ -66,6 +67,8 @@ function search(query){
 			searchResults = (data.results);
 			searchResults = searchResults.slice(0,8);
 	        displayResult(searchResults[0]);
+	        $(".searchStatus").hide();
+	        //data.results holding all results from ajax query 
 	    }
 	});
 
