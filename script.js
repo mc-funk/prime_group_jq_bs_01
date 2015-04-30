@@ -40,6 +40,17 @@ $(document).ready(function() {
 		searchResults = search(searchTerm);
 	});
 
+	$('#searchField').keyup(function(e){ //"e" is the keystroke being sent to system
+		console.log("Keyup worked at all");
+		if(e.keyCode == 13) //13 is "enter"
+		{
+			$(".searchStatus").show();
+			var searchTerm = $("#searchField").val();
+			$("#searchField").val('');
+			searchResults = search(searchTerm);
+		}
+	});
+
 	// When an individual nav button is clicked, display those search results
 	$(".circleBtn").on('click', function(){
 		$(this).addClass("selected");

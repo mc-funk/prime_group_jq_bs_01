@@ -1,6 +1,5 @@
 .circleBtn {
     display: inline;
-    height:
 }
 
 .selected img{
@@ -23,12 +22,12 @@
     margin-right: 50%;
  }
 
- .searchButton input {
+ /*.searchButton input {
      width: 140px;
- }
+ }*/
 
  .searchButton input, .searchBtn {
-     height: 3em;
+     height: 2.5em;
  }
 
  .searchButton {
