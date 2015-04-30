@@ -16,12 +16,15 @@
 
 <body>
 	<div class="container">
-		<div class="searchButton">
-			<p><i class="fa fa-search fa-lg"></i><input type="text" name="name" id="searchField" placeholder="search"/></p>
-			<div class="btn btn-default searchBtn">Search</div>
+		<div class="searchButton row">
+			<p class="col-md-2">
+				<i class="fa fa-search fa-lg"></i>
+				<input type="text" name="name" id="searchField" placeholder="Search"/>
+			</p>
+			<div class="btn btn-default searchBtn col-md-1">Search</div>
 		</div>
 		<div class="searchStatus" style="display:none">Searching<i class="fa fa-spinner fa-pulse fa-3x"></i></div>
-		<div class="display col-md-8 well" style="display:none">
+		<div class="display col-md-8 col-md-offset-2 well" style="display:none">
 			<div class="displayImage"></div>
 			<div class="nav">
 				<div class="leftArrow"><i class="fa fa-chevron-circle-left fa-3x"></i></div>
