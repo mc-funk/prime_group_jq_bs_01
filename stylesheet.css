@@ -2,6 +2,10 @@
     display: inline;
 }
 
+.btn {
+    display: inline-block;
+}
+
 .selected img{
     border: 4px solid #008cba;
 }
